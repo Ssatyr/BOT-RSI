@@ -13,8 +13,8 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the Repository** (if applicable):
    ```bash
-   git clone https://yourrepository.git
-   cd your-repository-folder
+   git clone https://github.com/Ssatyr/BOT-RSI.git
+   cd BOT-RSI
    ```
 2. **Install Dependencies**:
     Create a virtual environment and install the dependencies:

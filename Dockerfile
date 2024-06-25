@@ -1,8 +1,8 @@
 FROM python:3.11
 
-WORKDIR /app
-
 COPY . /app
+
+WORKDIR /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -10,4 +10,4 @@ EXPOSE 80
 
 ENV NAME World
 
-CMD ["python", "app.py"]
+CMD ["python", "src/main.py"]

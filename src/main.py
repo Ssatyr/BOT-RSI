@@ -11,7 +11,8 @@ import logging
 # Load the token from the .env file
 load_dotenv()
 TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
-if TOKEN is None:
+CHANNEL_ID: Final[int] = os.getenv('CHANNEL_ID')
+if len(TOKEN) == 0 or len(CHANNEL_ID) == 0:
     logging.error("The Discord token is missing in the .env file.")
     exit(1)
 
@@ -19,7 +20,6 @@ if TOKEN is None:
 intents: Intents = Intents.default()
 intents.typing = False
 client: Client = Client(intents=intents)
-CHANNEL_ID = 1089325590198366242
 
 latest_rsi_state = None # None, overbought, oversold
 
