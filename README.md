@@ -27,9 +27,30 @@ Before you begin, ensure you have the following installed:
     Create a .env file in the root directory and add your Discord token:
     ```plaintext
     DISCORD_TOKEN=your_discord_bot_token_here
+    CHANNEL_ID=your_channel_id_here
     ```
 4. **Run the Bot**:
     Execute the main script to start the bot:
     ```bash
     python main.py
+    ```
+
+## Docker Setup
+
+1. **Clone the Repository** (if applicable):
+   ```bash
+   git clone https://github.com/Ssatyr/BOT-RSI.git
+   cd BOT-RSI
+   ```
+2. **Set Up Environment Variables**:
+    Create a .env file in the root directory and add your Discord token:
+    ```plaintext
+    DISCORD_TOKEN=your_discord_bot_token_here
+    CHANNEL_ID=your_channel_id_here
+    ```
+3. **Run the Bot**:
+    Docker Deploy Instrucitons:
+    ```bash
+    docker build . -t "bot-rsi"
+    docker run -d --env-file .env -t "bot-rsi"
     ```

@@ -11,11 +11,15 @@ import logging
 # Load the token from the .env file
 load_dotenv()
 TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
-CHANNEL_ID: Final[int] = os.getenv('CHANNEL_ID')
-if len(TOKEN) == 0 or len(CHANNEL_ID) == 0:
+if len(TOKEN) == 0:
     logging.error("The Discord token is missing in the .env file.")
     exit(1)
 
+try:
+    CHANNEL_ID: Final[int] = int(os.getenv('CHANNEL_ID'))
+except ValueError:
+    logging.error("The channel ID is missing in the .env file or it is not a valid integer.")
+    exit(1)
 
 intents: Intents = Intents.default()
 intents.typing = False

@@ -8,7 +8,7 @@ import logging
 
 # 1h -> 3600000 ms
 
-TIME = 18 # in hours at least 15 to have enough data for RSI calculation
+TIME = 18 # in hours at least 14 to have enough data for RSI calculation
 
 session = HTTP(testnet=True)
 
@@ -49,7 +49,7 @@ def fetch_spot_rsi(symbol="SOLUSDT", interval="60"):
             logging.error("An error occurred while fetching spot data.")
             return None
         
-        rsi = RSIIndicator(close=close_prices, window=15, fillna=True)
+        rsi = RSIIndicator(close=close_prices, window=14, fillna=True)
         close_prices['rsi'] = rsi.rsi()
 
         logging.info(f"Latest RSI value: {close_prices['rsi'].iloc[-1]}")
